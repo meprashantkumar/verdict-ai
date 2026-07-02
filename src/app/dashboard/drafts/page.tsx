@@ -215,9 +215,9 @@ export default function DraftsPage() {
   };
 
   return (
-    <div className="space-y-6 h-full">
+    <div className="flex flex-col h-full gap-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between shrink-0">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Draft Generator</h1>
           <p className="text-slate-500">Generate professional legal documents with AI</p>
@@ -301,9 +301,9 @@ export default function DraftsPage() {
       </Dialog>
 
       {/* Main Layout */}
-      <div className="grid lg:grid-cols-3 gap-6 h-[calc(100vh-220px)]">
+      <div className="grid lg:grid-cols-3 gap-6 flex-1 min-h-0">
         {/* Draft List */}
-        <div className="overflow-y-auto space-y-2 pr-1">
+        <div className="overflow-y-auto space-y-2 pr-1 min-h-0">
           {loading ? (
             Array.from({ length: 4 }).map((_, i) => <Skeleton key={i} className="h-20 w-full" />)
           ) : drafts.length === 0 ? (
@@ -335,9 +335,9 @@ export default function DraftsPage() {
         </div>
 
         {/* Document Preview Panel */}
-        <div className="lg:col-span-2 flex flex-col overflow-hidden">
+        <div className="lg:col-span-2 flex flex-col min-h-0">
           {selectedDraft ? (
-            <Card className="flex-1 flex flex-col overflow-hidden">
+            <Card className="h-full flex flex-col overflow-hidden">
               <CardHeader className="border-b shrink-0 py-3 px-4">
                 <div className="flex items-center justify-between gap-3">
                   <div className="min-w-0 flex-1">
@@ -406,7 +406,7 @@ export default function DraftsPage() {
               </div>
             </Card>
           ) : (
-            <Card className="flex-1 flex items-center justify-center">
+            <Card className="h-full flex items-center justify-center">
               <div className="text-center text-slate-400">
                 <FileText className="h-12 w-12 mx-auto mb-3 opacity-30" />
                 <p className="font-medium">Select a draft to preview</p>
