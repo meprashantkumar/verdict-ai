@@ -51,7 +51,7 @@ Return ONLY valid JSON, no markdown.`;
 }
 
 export async function chatWithAI(
-  messages: { role: "user" | "model"; content: string }[],
+  messages: { role: "user" | "assistant" | "model"; content: string }[],
   caseContext: string
 ) {
   const model = getGeminiModel();
